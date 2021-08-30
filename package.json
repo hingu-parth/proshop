@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "MERN shopping cart app",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
@@ -20,7 +21,9 @@
   },
   "homepage": "https://github.com/hingu-parth/proshop#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.2"
   },
   "devDependencies": {
     "concurrently": "^6.2.1",
