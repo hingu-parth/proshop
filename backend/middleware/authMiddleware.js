@@ -4,7 +4,6 @@ import asyncHandler from 'express-async-handler';
 
 const protect = asyncHandler(async (req, res, next) => {
   let token;
-
   if (
     req.headers.authorization &&
     req.headers.authorization.startsWith('Bearer')
@@ -18,6 +17,7 @@ const protect = asyncHandler(async (req, res, next) => {
   }
 
   if (!token) {
+    console.log(token, 'authFail');
     res.status(401);
     throw Error('Not Authorized, no token');
   }
