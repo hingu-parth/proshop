@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
-import { Image, Form, Button, Row, Col, ListGroup } from 'react-bootstrap';
+import { Image, Button, Row, Col, ListGroup } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import CheckoutSteps from '../components/CheckoutSteps';
-import FormContainer from '../components/FormContainer';
-import { cartReducer } from '../reducers/cartReducers';
 import Message from '../components/Message';
 import { Link } from 'react-router-dom';
 import { createOrder } from '../actions/orderActions';
@@ -40,7 +38,6 @@ const PlaceOrderScreen = ({ history }) => {
   }, [history, success]);
 
   const placeOrderHandler = () => {
-    console.log('Check');
     dispatch(
       createOrder({
         orderItems: cart.cartItems,
