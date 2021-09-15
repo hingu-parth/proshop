@@ -6,6 +6,9 @@ import Message from '../components/Message';
 import Loader from '../components/Loader';
 import { listProducts } from '../actions/productActions';
 import Paginate from '../components/Paginate';
+import ProductCarousel from './ProductCarousel';
+import Meta from '../components/Meta';
+import { Link } from 'react-router-dom';
 
 const HomeScreen = ({ match }) => {
   const dispatch = useDispatch();
@@ -23,6 +26,13 @@ const HomeScreen = ({ match }) => {
 
   return (
     <>
+      {!keyword ? (
+        <ProductCarousel />
+      ) : (
+        <Link to='/' className='btn btn-light'>
+          Go Back
+        </Link>
+      )}
       <h1> Latest products</h1>
       {loading ? (
         <Loader />
@@ -30,6 +40,7 @@ const HomeScreen = ({ match }) => {
         <Message variant='danger '>{error}</Message>
       ) : (
         <>
+          <Meta />
           <Row>
             {products.map((product) => (
               <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
